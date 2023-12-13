@@ -157,56 +157,63 @@
               <div class="table-responsive p-0">
 			  
 			  	<form name="form1" method="post">
-		
 		<div class="row">
 			<div class="col-lg-2">
 			
 			</div>
-			
 			<div class="col-lg-3">
-			<select class="form-control" name="mark_type" style="border:1px #FF0033 solid">
-								<option value="">-Marks for-</option>
-								<option>Internal Mark</option>
-								<option>Semester Mark</option>
+			<select class="form-control" name="dept" style="border:1px #FF0033 solid">
+								<option value="">-Department-</option>
+								{% for r1 in value1 %}
+								<option>{{r1[0]}}</option>
+								{% endfor %}
 								</select>
 			</div>
+			<div class="col-lg-3">
+			<select name="year" class="form-control" style="border:1px #FF0033 solid">
+			<option value="">-Year-</option>
+								{% for r2 in value2 %}
+								<option>{{r2[0]}}</option>
+								{% endfor %}
+			</select>
+			</div>
+			
+			
+			
 		</div>
 		
-		{% for rs in value1 %}
+	
+		
 		<div class="row">
 			<div class="col-lg-2">
 			
 			</div>
 			<div class="col-lg-3">
-			<input type="text" name="subj[]" value="{{rs[2]}}">
-			</div>
-			<div class="col-lg-3">
-			<input type="text" name="mark[]" value="">
-			</div>
+			<select name="semester" class="form-control" style="border:1px #FF0033 solid">
+			<option value="">-Semester-</option>
+			<option value="1">Semester1</option>
+			<option value="2">Semester2</option>
+			<option value="3">Semester3</option>
+			<option value="4">Semester4</option>
+			<option value="5">Semester5</option>
+			<option value="6">Semester6</option>
+			<option value="7">Semester7</option>
+			<option value="8">Semester8</option>				
+			</select>
 			
-		</div>
-		{% endfor %}
-		<div class="row">
-			<div class="col-lg-2">
-			
 			</div>
-			
 			<div class="col-lg-3">
 			<input type="submit" name="btn" class="btn bg-gradient-primary w-100 my-4 mb-2" value="Submit">
 			</div>
 		</div>
 				</form>
-				{% if st=="1" %}
-				<span style="color:#009900">Marks Added....</span>
 				
-				{% endif %}
               </div>
             </div>
           </div>
 		 </div>
        
-       
-		
+    
 		
       </div>
       

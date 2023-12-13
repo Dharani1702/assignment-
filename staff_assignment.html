@@ -40,9 +40,9 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
-      
+        
         <li class="nav-item">
-          <a class="nav-link text-white " href="/staff_assignment">
+          <a class="nav-link text-white bg-gradient-primary " href="/staff_assignment">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -150,62 +150,109 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Marks</h6>
+                <h6 class="text-white text-capitalize ps-3">Assignment</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
 			  
 			  	<form name="form1" method="post">
-		
 		<div class="row">
 			<div class="col-lg-2">
 			
 			</div>
-			
-			<div class="col-lg-3">
-			<select class="form-control" name="mark_type" style="border:1px #FF0033 solid">
-								<option value="">-Marks for-</option>
-								<option>Internal Mark</option>
-								<option>Semester Mark</option>
+			<div class="col-lg-4">
+			<select class="form-control" name="dept" style="border:1px #FF0033 solid">
+								<option value="">-Department-</option>
+								{% for r1 in value1 %}
+								<option>{{r1[0]}}</option>
+								{% endfor %}
 								</select>
 			</div>
+			<div class="col-lg-4">
+			<select name="year" class="form-control" style="border:1px #FF0033 solid">
+			<option value="">-Year-</option>
+								{% for r2 in value2 %}
+								<option>{{r2[0]}}</option>
+								{% endfor %}
+			</select>
+			</div>
+			
 		</div>
 		
-		{% for rs in value1 %}
 		<div class="row">
 			<div class="col-lg-2">
 			
 			</div>
-			<div class="col-lg-3">
-			<input type="text" name="subj[]" value="{{rs[2]}}">
-			</div>
-			<div class="col-lg-3">
-			<input type="text" name="mark[]" value="">
+			<div class="col-lg-8">
+			Assignment 
+				<textarea name="details" class="form-control" style="border:1px #FF0033 solid"></textarea>
 			</div>
 			
 		</div>
-		{% endfor %}
+		
 		<div class="row">
 			<div class="col-lg-2">
 			
 			</div>
-			
-			<div class="col-lg-3">
+			<div class="col-lg-4">
 			<input type="submit" name="btn" class="btn bg-gradient-primary w-100 my-4 mb-2" value="Submit">
 			</div>
 		</div>
 				</form>
-				{% if st=="1" %}
-				<span style="color:#009900">Marks Added....</span>
 				
-				{% endif %}
               </div>
             </div>
           </div>
 		 </div>
        
-       
+        <div class="col-6">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Assignment Information</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Assignment</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+				   {% for rs in data %}
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                         
+                          <div class="d-flex flex-column justify-content-center">
+                           
+                            <p class="text-xs text-secondary mb-0">{{rs[2]}} - {{rs[3]}}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">{{rs[4]}}</p>
+                        
+                      </td>
+                      
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{rs[5]}}</span>
+                      </td>
+                     
+                    </tr>
+					{% endfor %}
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
 		
 		
       </div>
