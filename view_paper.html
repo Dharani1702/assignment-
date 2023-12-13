@@ -1,0 +1,126 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Question Paper</title>
+<style type="text/css">
+.bor
+{
+border:1px solid #666666;
+}
+</style>
+</head>
+
+<body>
+<table width="70%" border="0" align="center" cellpadding="5" cellspacing="0" class="bor">
+  <tr>
+    <td align="left"><table width="139" border="1" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>SET - {{data[7]}}</td>
+        </tr>
+      </table></td>
+    <td colspan="2" align="right"><table width="278" border="1" cellpadding="3" cellspacing="0">
+      <tr>
+        <td width="72">Reg No. </td>
+        <td width="23">&nbsp;</td>
+        <td width="20">&nbsp;</td>
+        <td width="16">&nbsp;</td>
+        <td width="15">&nbsp;</td>
+        <td width="12">&nbsp;</td>
+        <td width="14">&nbsp;</td>
+        <td width="12">&nbsp;</td>
+        <td width="20">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="3"><table width="95%" border="0" align="center" cellpadding="3" cellspacing="0" class="bor">
+      <tr>
+        <td width="17%" align="left"><img src="../static/logo1.png" width="105" height="94"></td>
+        <td width="70%" align="center"><h3>VIVEKANANDHA COLLEGE OF ENGINEERING FOR WOMEN</h3>
+		
+        <div>[AUTONOMOUS INSTITUTION AFFILIATED TO ANNA UNIVERSITY, CHENNAI]</div>
+		<div>Elayampalayam - 637 205, Tiruchengode, Namakkal Dt., Tamilnadu.</div>
+		</td>
+        <td width="13%" align="right"><img src="../static/img1.jpg"></td>
+      </tr>
+
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">
+      <h3>{{data[8]}} (B.E / B.Tech)</h3>
+      <h4>({{data[9]}}-Regulation)</h4>
+	  <h4>Department of {{value1[2]}}</h4>
+	  <h4>{{data[5]}} - {{data[6]}}</h4>
+	  </td>
+  </tr>
+  <tr>
+    <td align="left">YEAR/SEM: {{data[10]}}/{{data[11]}}</td>
+    <td>&nbsp;</td>
+    <td align="right">Date: {{data[12]}}</td>
+  </tr>
+  <tr>
+    <td align="left">Time: {{data[13]}}</td>
+    <td>&nbsp;</td>
+    <td align="right">Maximum: {{data[14]}}</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center"><strong>Answer All the Questions</strong> </td>
+  </tr>
+
+  <tr>
+    <td colspan="3" align="center">
+	{% for rs in data2 %}
+		<p align="center"><strong>Part {{rs[4]}} ({{rs[5]}} X {{rs[6]}} = {{rs[9]}} Marks)</strong></p>
+	<table width="90%" border="1" cellpadding="3" cellspacing="0">
+      <tr>
+        <td align="center" colspan="2">Q.No</td>
+        <td align="center">Questions</td>
+        <td align="center">KL</td>
+        <td align="center">CO Attainment </td>
+      </tr>
+	  {% for rs2 in rs[8] %}
+	  
+	  {% if rs[7]==1 %}
+      <tr>
+        <td colspan="2">{{rs2[11]}}</td>
+        <td>{{rs2[6]}}</td>
+        <td>{{rs2[8]}}</td>
+        <td>{{rs2[9]}}</td>
+      </tr>
+	  
+	  {% else %}
+	  		
+			{% for rs3 in rs2[12] %}
+			
+			{% if rs3[14]=="yes" %}
+			<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td align="center">(OR)</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			</tr>
+			{% endif %}
+	   <tr>
+        <td>{{rs3[12]}}</td>
+		<td>{{rs3[13]}}</td>
+        <td>{{rs3[6]}}</td>
+        <td>{{rs3[8]}}</td>
+        <td>{{rs3[9]}}</td>
+      </tr>
+	  
+	  
+	  
+	  		{% endfor %}
+	  	
+	  {% endif %}
+	  
+	{% endfor %}
+    </table>
+	<p>&nbsp;</p>
+	{% endfor %}	</td>
+  </tr>
+</table>
+</body>
+</html>
